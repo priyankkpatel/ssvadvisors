@@ -101,6 +101,7 @@ export default function InquiryForm({ initialMode = 'tax' }) {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
+      mode: "cors",
       body: JSON.stringify(emailPayload)
     })
     .then(res => res.json())
