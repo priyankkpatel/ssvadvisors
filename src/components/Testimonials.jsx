@@ -6,49 +6,49 @@ import GaneshaSvg from './GaneshaSvg';
 const defaultReviews = [
   {
     name: 'Amit Bafna',
-    role: 'Managing Director, Bafna Textiles',
+    role: '',
     location: 'Ahmedabad',
     rating: 5,
     text: "We have been outsourcing our GST returns and annual bookkeeping to Tirth Patel. He is extremely thorough with GST compliance and provides prompt updates on tax regulations. Very professional and reliable service in Ahmedabad.",
   },
   {
     name: 'Ankur Bafna',
-    role: 'Partner, Bafna Exports',
+    role: '',
     location: 'Ahmedabad',
     rating: 5,
     text: "Managing business accounting and filing GST on time used to be a major hassle for us. Shree Siddhivinayak team streamlined our entire process. Their tax planning advisory helped us optimize our returns legally.",
   },
   {
     name: 'Kalpesh Mali',
-    role: 'Owner, Mali & Co.',
+    role: '',
     location: 'Ahmedabad',
     rating: 5,
     text: "Highly satisfied with their Income Tax Return (ITR) filing service. Tirthbhai explained all the tax deductions clearly and filed our returns swiftly. For any tax-related advice, they are the best.",
   },
   {
     name: 'Bhavesh Motwani',
-    role: 'Founder, Motwani Enterprises',
+    role: '',
     location: 'Ahmedabad',
     rating: 5,
     text: "Getting our new business GST registration and MSME setup done was seamless with Tirth Patel. He handled the documentation perfectly and cleared all registry compliance without any delays.",
   },
   {
     name: 'Abhishek Gandhi Mehta',
-    role: 'Proprietor, Mehta Traders',
+    role: '',
     location: 'Ahmedabad',
     rating: 5,
     text: "Shree Siddhivinayak manages our complete corporate accounting and bookkeeping. Their monthly accounting reports are highly accurate, and they ensure our GST returns are filed well before the due dates.",
   },
   {
     name: 'Praveen Kumar Salecha',
-    role: 'Director, Salecha Fabrics',
+    role: '',
     location: 'Ahmedabad',
     rating: 5,
     text: "Tirth Patel has been managing our company's tax audits and quarterly GST compliance. His expert knowledge in tax laws has resolved complex audit queries smoothly. Highly recommended for tax consultancy.",
   },
   {
     name: 'Ayan Patel',
-    role: 'Owner, Patel Logistics',
+    role: '',
     location: 'Ahmedabad',
     rating: 5,
     text: "Great experience with their ITR filing and accounting services. They are prompt, transparent, and always available on WhatsApp for quick tax queries. A trusted partner for our business compliance.",
@@ -200,7 +200,7 @@ export default function Testimonials() {
                 <p className="testimonial-text">"{review.text}"</p>
                 <div className="client-info">
                   <span className="client-name">{review.name}</span>
-                  <span className="client-role">{review.role}</span>
+                  {review.role && <span className="client-role">{review.role}</span>}
                   <span className="client-location">{review.location}</span>
                 </div>
               </div>
