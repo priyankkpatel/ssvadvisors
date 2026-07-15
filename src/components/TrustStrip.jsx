@@ -1,12 +1,11 @@
 import React from 'react';
-import { Award, Users, BookOpen, Home } from 'lucide-react';
+import { Award, Users, BookOpen } from 'lucide-react';
 
 export default function TrustStrip() {
   const stats = [
     { icon: <Award size={36} />, value: '10+', label: 'Years of Trust' },
     { icon: <Users size={36} />, value: '500+', label: 'Happy Families' },
     { icon: <BookOpen size={36} />, value: '1,200+', label: 'Tax Returns Filed' },
-    { icon: <Home size={36} />, value: '150+', label: 'Properties Handled' },
   ];
 
   return (
@@ -36,15 +35,15 @@ export default function TrustStrip() {
         }
         .trust-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 30px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 40px;
           text-align: center;
         }
         .stat-card {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 15px;
+          gap: 20px;
           padding: 10px;
         }
         .stat-icon {
@@ -53,7 +52,7 @@ export default function TrustStrip() {
           align-items: center;
           justify-content: center;
           background-color: rgba(255, 255, 255, 0.05);
-          padding: 12px;
+          padding: 14px;
           border-radius: 50%;
           border: 1px dashed rgba(212, 175, 55, 0.3);
         }
@@ -64,7 +63,7 @@ export default function TrustStrip() {
           text-align: left;
         }
         .stat-value {
-          font-size: 1.8rem;
+          font-size: 2rem;
           font-weight: 800;
           line-height: 1.1;
           color: var(--bg-cream);
@@ -72,18 +71,13 @@ export default function TrustStrip() {
         }
         .stat-label {
           font-size: 0.85rem;
-          font-weight: 500;
+          font-weight: 600;
           color: #D1D5DB;
           text-transform: uppercase;
           letter-spacing: 0.5px;
+          margin-top: 2px;
         }
-        @media (max-width: 992px) {
-          .trust-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-          }
-        }
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
           .trust-grid {
             grid-template-columns: 1fr;
             gap: 25px;
@@ -91,10 +85,14 @@ export default function TrustStrip() {
           .stat-card {
             flex-direction: column;
             text-align: center;
+            gap: 12px;
           }
           .stat-info {
             align-items: center;
             text-align: center;
+          }
+          .stat-value {
+            font-size: 1.8rem;
           }
         }
       `}</style>
