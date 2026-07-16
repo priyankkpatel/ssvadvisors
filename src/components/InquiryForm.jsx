@@ -78,10 +78,13 @@ export default function InquiryForm({ initialMode = 'tax' }) {
       return;
     }
 
-    // Live Email Submission using FormSubmit.co AJAX
+    // Live Email Submission using Web3Forms AJAX API
     setIsSubmitting(true);
     
     const emailPayload = {
+      access_key: "a35d5319-9cf0-4ce7-a6e0-03f583eabba7",
+      subject: `New Lead - Shree Siddhivinayak (${formData.name})`,
+      from_name: "Shree Siddhivinayak Website",
       Name: formData.name,
       Phone: formData.phone,
       Email: formData.email || 'Not Provided',
@@ -92,33 +95,35 @@ export default function InquiryForm({ initialMode = 'tax' }) {
       Location_Preference: mode === 'property' ? formData.reLocation : 'N/A',
       Budget_Range: mode === 'property' ? (formData.reBudget || 'Not Stated') : 'N/A',
       Message: formData.message || 'No additional message',
-      _subject: `New Lead - Shree Siddhivinayak (${formData.name})`,
     };
 
-    fetch("https://formsubmit.co/ajax/ssvadvisors0722@gmail.com", {
+    fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      mode: "cors",
       body: JSON.stringify(emailPayload)
     })
     .then(res => res.json())
     .then(data => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        serviceTax: 'ITR Filing',
-        reTransaction: 'Buy',
-        rePropertyType: 'Flat',
-        reLocation: 'Asarwa',
-        reBudget: '',
-        message: '',
-      });
+      if (data.success) {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          serviceTax: 'ITR Filing',
+          reTransaction: 'Buy',
+          rePropertyType: 'Flat',
+          reLocation: 'Asarwa',
+          reBudget: '',
+          message: '',
+        });
+      } else {
+        throw new Error(data.message || "Web3Forms submission failed");
+      }
     })
     .catch(err => {
       console.error("Email submission error:", err);
